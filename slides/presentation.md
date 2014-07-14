@@ -4,7 +4,7 @@
 * Minification (js, css ...)
 * Optimisation d'images.
 
-# Methode classique
+# Methodes classiques
 
 * Winless
 * http://www.jpegmini.com/
@@ -18,10 +18,8 @@
 # Grunt
 
 * Task runner Javascript.
-* Basé sur un systeme de tâches.
-* Module Node.
 
-# Demo de Grunt
+# Demo
 
 # Gulp
 [ Alexis : 3min ]      
