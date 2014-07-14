@@ -1,0 +1,295 @@
+// -------------------------------------------------
+// -------------------------------------------------
+//  /$$      /$$ /$$$$$$ /$$   /$$ /$$$$$$ /$$   /$$
+// | $$$    /$$$|_  $$_/| $$  / $$|_  $$_/| $$$ | $$
+// | $$$$  /$$$$  | $$  |  $$/ $$/  | $$  | $$$$| $$
+// | $$ $$/$$ $$  | $$   \  $$$$/   | $$  | $$ $$ $$
+// | $$  $$$| $$  | $$    >$$  $$   | $$  | $$  $$$$
+// | $$\  $ | $$  | $$   /$$/\  $$  | $$  | $$\  $$$
+// | $$ \/  | $$ /$$$$$$| $$  \ $$ /$$$$$$| $$ \  $$
+// |__/     |__/|______/|__/  |__/|______/|__/  \__/
+// -------------------------------------------------
+// -------------------------------------------------
+
+// LESS Mixins : Don't touch or you'll be banned !
+
+@basefont: 10; // Valeur par défaut, plus simple pour calculer
+
+// CONVERT FONTSIZE PX TO REM
+
+.fts(@size)
+{  
+  @remValue: (@size / @basefont);
+  //@pxValue: (@size);
+
+  font-size: ~"@{remValue}rem";
+  //font-size: ~"@{pxValue}px"; 
+}
+
+.lh(@line_height)
+{  
+  @remValue: (@line_height / @basefont);
+  //@pxValue: (@line_height);
+
+  line-height: ~"@{remValue}rem";
+  //line-height: ~"@{pxValue}px"; 
+}
+
+.margin(@top, @right, @bottom, @left)
+{
+	@val_top    : @top    / @basefont;
+	@val_right  : @right  / @basefont;
+	@val_bottom : @bottom / @basefont;
+	@val_left   : @left   / @basefont;
+
+	margin:~"@{val_top}rem @{val_right}rem @{val_bottom}rem @{val_left}rem";
+}
+
+.m_t(@top)
+{
+	@val_top : @top / @basefont;
+
+	margin-top:~"@{val_top}rem";
+}
+
+.m_b(@bottom)
+{
+	@val_bottom : @bottom / @basefont;
+
+	margin-bottom:~"@{val_bottom}rem";
+}
+
+.m_r(@right)
+{
+	@val_right : @right / @basefont;
+
+	margin-right:~"@{val_right}rem";
+}
+
+.m_l(@left)
+{
+	@val_left : @left / @basefont;
+
+	margin-left:~"@{val_left}rem";
+}
+
+.padding(@top, @right, @bottom, @left)
+{
+	@val_top    : @top    / @basefont;
+	@val_right  : @right  / @basefont;
+	@val_bottom : @bottom / @basefont;
+	@val_left   : @left   / @basefont;
+
+	padding:~"@{val_top}rem @{val_right}rem @{val_bottom}rem @{val_left}rem";
+}
+
+.p_t(@top)
+{
+	@val_top : @top / @basefont;
+
+	padding-top:~"@{val_top}rem";
+}
+
+.p_b(@bottom)
+{
+	@val_bottom : @bottom / @basefont;
+
+	padding-bottom:~"@{val_bottom}rem";
+}
+
+.p_r(@right)
+{
+	@val_right : @right / @basefont;
+
+	padding-right:~"@{val_right}rem";
+}
+
+.p_l(@left)
+{
+	@val_left : @left / @basefont;
+
+	padding-left:~"@{val_left}rem";
+}
+
+.w(@width)
+{
+	@val_width : @width / @basefont;
+
+	width:~"@{val_width}rem";
+}
+
+.h(@height)
+{
+	@val_height : @height / @basefont;
+
+	height:~"@{val_height}rem";
+}
+
+@url : '../img/';
+//background:url('@{url}image.jpg') 0 0 no-repeat;
+
+@svg : '../svg/';
+
+.boxsizing()
+{
+	-webkit-box-sizing: border-box;
+		 -moz-box-sizing: border-box;
+			 -o-box-sizing: border-box;
+					box-sizing: border-box;
+}
+
+
+.boxsizing2()
+{
+	-webkit-box-sizing: content-box;
+		 -moz-box-sizing: content-box;
+			 -o-box-sizing: content-box;
+					box-sizing: content-box;
+}
+
+.borderradius(@radius)
+{
+	-webkit-border-radius: ~"@{radius}px";
+		 -moz-border-radius: ~"@{radius}px";
+					border-radius: ~"@{radius}px";
+}
+
+.boxshadow(@x: 0, @y: 0, @blur: 0, @color: @black)
+{
+	-webkit-box-shadow: @arguments;
+		 -moz-box-shadow: @arguments;
+					box-shadow: @arguments;
+}
+
+.transition(@transition)
+{
+	-webkit-transition: @transition;  
+		 -moz-transition: @transition;
+			-ms-transition: @transition; 
+			 -o-transition: @transition;
+					transition: @transition;  
+}
+
+.transition2(@transition1, @transition2)
+{
+	-webkit-transition: @transition1, @transition2;  
+		 -moz-transition: @transition1, @transition2;
+			-ms-transition: @transition1, @transition2; 
+			 -o-transition: @transition1, @transition2;
+					transition: @transition1, @transition2;  
+}
+
+.transform-origin(@x, @y)
+{
+	-webkit-transform-origin: @x @y;
+		 -moz-transform-origin: @x @y;
+			-ms-transform-origin: @x @y;
+			 -o-transform-origin: @x @y;
+					transform-origin: @x @y;
+}
+
+.translate3d(@x : 0, @y : 0, @z : 0)
+{
+	-webkit-transform: translate3d(@x, @y, @z);
+		 -moz-transform: translate3d(@x, @y, @z);
+			-ms-transform: translate3d(@x, @y, @z);
+			 -o-transform: translate3d(@x, @y, @z);
+					transform: translate3d(@x, @y, @z);
+}
+
+.translateX(@x)
+{
+	-webkit-transform: translateX(@x);
+		 -moz-transform: translateX(@x);
+			-ms-transform: translateX(@x);
+			 -o-transform: translateX(@x);
+					transform: translateX(@x);
+}
+
+.translateZ(@z : 0)
+{
+	-webkit-transform: translateZ(@z);
+		 -moz-transform: translateZ(@z);
+			-ms-transform: translateZ(@z);
+			 -o-transform: translateZ(@z);
+					transform: translateZ(@z);
+}
+
+.scale(@factor)
+{
+	-webkit-transform: scale(@factor);
+		 -moz-transform: scale(@factor);
+			-ms-transform: scale(@factor);
+			 -o-transform: scale(@factor);
+					transform: scale(@factor);
+}
+
+.rotate(@deg)
+{
+	-webkit-transform: rotate(@deg);
+		 -moz-transform: rotate(@deg);
+			-ms-transform: rotate(@deg);
+			 -o-transform: rotate(@deg);
+					transform: rotate(@deg);
+}
+
+.rotate_y(@deg)
+{
+	-webkit-transform: rotateY(@deg);
+		 -moz-transform: rotateY(@deg);
+			-ms-transform: rotateY(@deg);
+			 -o-transform: rotateY(@deg);
+					transform: rotateY(@deg);
+}
+
+.rotate_x(@deg)
+{
+	-webkit-transform: rotateX(@deg);
+		 -moz-transform: rotateX(@deg);
+			-ms-transform: rotateX(@deg);
+			 -o-transform: rotateX(@deg);
+					transform: rotateX(@deg);
+}
+
+.perspective(@px)
+{
+	-webkit-perspective: (@px);
+		 -moz-perspective: (@px);
+					perspective: (@px);
+}
+
+.preserve_3d()
+{
+	-webkit-transform-style: preserve-3d;
+		 -moz-transform-style: preserve-3d;
+					transform-style: preserve-3d;
+}
+
+.cover()
+{
+	-webkit-background-size: cover;
+		 -moz-background-size: cover;
+			 -o-background-size: cover;
+					background-size: cover;
+}
+
+.contain()
+{
+	-webkit-background-size: contain;
+		 -moz-background-size: contain;
+			 -o-background-size: contain;
+					background-size: contain;
+}
+
+.inlineblock()
+{
+	display:-moz-inline-stack;
+	display:inline-block;
+}
+
+.img_fluide()
+{
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+}
