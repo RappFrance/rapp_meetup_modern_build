@@ -183,7 +183,58 @@ gulp.task('less', function () {
 				</section>
 
 				<section>
+					<section>
 					<h2>Browser-sync</h2>
+						<img src="http://www.tehcute.com/pics/201110/marshmellow-kitten-big.jpg" />
+					</section>
+					<section>
+					<p>Browser-sync est un "serveur" de dev, capable de servir des fichiers statiques</p>
+					<pre><code data-trim contenteditable>
+gulp.task('browser-sync', function() {
+    browserSync({
+        server: {
+            baseDir: "./"
+        }
+    });
+});
+					</code></pre>
+					</section>
+					<section>
+					<p>Ou de servir de proxy sur un serveur existant</p>
+					<pre><code data-trim contenteditable>
+gulp.task('browser-sync', function() {
+    browserSync({
+        proxy: "yourlocal.dev"
+    });
+});
+					</code></pre>
+					</section>
+					<section>
+					<p>Browser-sync est capable de repérer les changements dans le code (watcher) et d'automatiquement mettre à jour les browsers connectés avec les nouveaux changements (live-reload ou injection des nouveaux css)</p>
+					<pre><code data-trim contenteditable>
+gulp.task('server-config', function() {
+    browserSync.init(["./build2/**/*"], {
+        server: {
+            baseDir: "./"
+        }
+    });
+});
+					</code></pre>
+					</section>
+					<section>
+					<p>Browser-sync n'est pas qu'accessible localement, mais dispose d'une adresse publique permettant de se connecter avec des devices mobiles. Ils seront aussi automatiquement mis à jours.</p>
+					<pre><code data-trim contenteditable>
+[13:26:26] Finished 'server' after 16 μs
+[BS] Local: >>> http://localhost:3000
+[BS] External: >>> http://172.20.205.119:3000
+[BS] Serving files from: ./
+					</code></pre>
+					<p>Une action sur un des browsers est automatiquement impactée sur tous les autres connectés (exemple: remplissage d'un formulaire, ...).</p>
+					<p>...</p>
+					</section>
+					<section>
+						<h2>Demo !</h2>
+					</section>
 				</section>
 
 				<section>
@@ -193,57 +244,7 @@ gulp.task('less', function () {
 
 				
 
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
 				
-				<section>
-					<section id="fragments">
-						<h2>Fragmented Views</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<ol>
-							<li class="fragment"><code>any type</code></li>
-							<li class="fragment"><em>of view</em></li>
-							<li class="fragment"><strong>fragments</strong></li>
-						</ol>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's a few styles of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment roll-in">roll-in</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-green">highlight-green</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p class="fragment highlight-current-blue">highlight-current-blue</p>
-					</section>
-				</section>
 
 			</div>
 
