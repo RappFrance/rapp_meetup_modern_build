@@ -83,19 +83,86 @@
 					</ul>
 				</section>
 
-				<section>
-					<h2>Grunt</h2>
-					<p>Task runner Javascript.</p>
+				
 
-				</section>
+					<section>
+						<h2>Grunt</h2>
+						<p>Task runner Javascript.</p>
+					</section>
 
+					
 				<section>
 					<h2>Demo</h2>
 				</section>
 
-
 				<section>
-					<h2>Gulp</h2>
+
+					<section>
+						<h2>Gulp</h2>
+						<img alt="" src="https://raw2.github.com/gulpjs/artwork/master/gulp-2x.png" class="hl gulpLogo">
+					</section>
+
+					<section>
+						<p>Gulp fait la même chose que Grunt, sauf qu'il utilise les <strong>Stream</strong> de node.js, au lieu de passer par des fichiers temporaires pour enchainer les taches.</p>
+					</section>
+
+					<section>
+						<figure>
+							 <img alt="" src="http://jaysoo.ca/images/grunt-flow-2.png">
+							 <figcaption>Sans stream</figcaption>
+						</figure>
+						<figure>
+							 <img alt="" src="http://jaysoo.ca/images/gulp-flow.png">
+							 <figcaption>Avec stream</figcaption>
+						</figure>
+					</section>
+
+					<section>
+					<p>Par exemple :</p>
+					<pre><code data-trim contenteditable>
+module.exports = function (grunt) {	
+	require('load-grunt-tasks')(grunt);	
+	grunt.initConfig({
+	    less: {
+	        dist: {
+	            files: {
+	              "css/style.css": "css/style.less"
+	            }
+	        }
+	    }, 
+	    cssmin: {
+	      dist: {
+	        files: {
+	           'build/css/min.css': ['css/style.css']
+	        }
+	      }
+	    },
+	 });
+	grunt.registerTask('css', ['less','cssmin']);
+}
+					</code></pre>					
+					</section>
+
+					<section>
+					<p>Va devenir :</p>
+					<pre><code data-trim contenteditable>
+var gulp = require('gulp');
+require('gulp-load')(gulp);
+gulp.task('less', function () {    
+    gulp.src('css/style.less')
+    .pipe(less({
+      paths: [ path.join(__dirname, 'less', 'includes') ]
+    }))
+    .pipe(concat('min.css'))
+    .pipe(minifyCSS({keepSpecialComments:0}))
+    .pipe(gulp.dest('build/css/'));
+});
+					</code></pre>					
+					</section>
+
+					<section>
+						<h2>Demo</section>
+
 				</section>
 
 				<section>
